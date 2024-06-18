@@ -1,6 +1,9 @@
 package com.SpringAPI.Login_SignUp.Entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 
 @Entity
 @Table(name = "UserAccessManager")
@@ -15,19 +18,25 @@ public class SignUp {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Id")
     private int id;
-    @Column(name = "Name")
+    @Column(name = "Name",length = 50)
+    @NotEmpty(message = "Name Cannot Be Empty")
     private String name;
 
-    @Column(name = "Username")
+    @Column(name = "Username",length = 50,unique = true)
+    @NotEmpty(message = "UserName Cannot Be Empty")
     private String username;
 
-    @Column(name = "EmailId")
+    @Column(name = "EmailId",unique = true)
+    @NotEmpty(message = "Email Is Required")
+    @Pattern(regexp = "^[a-z0-9]$",message = "Email Does Not Contain Any Special Characters Or Capital Letters")
     private String emailid;
 
-    @Column(name = "PhoneNo")
+    @Column(name = "PhoneNo",unique = true,length = 10)
+    @NotNull(message = "Phone No Is Required")
     private Long phnumber;
 
     @Column(name = "Password")
+    @NotEmpty(message = "password is Required")
     private String password;
 
     @Column(name = "ConfirmPassword")
