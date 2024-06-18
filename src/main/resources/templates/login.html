@@ -76,7 +76,7 @@
 
 <h2>Login Form</h2>
 
-<form action="#" th:action="@{/login}" method="post">
+<form action="#" th:action="@{/user/login}" method="post">
     <div class="imgcontainer">
         <img src="/css/img_avatar2.png" alt="Avatar" class="avatar">
     </div>
@@ -96,7 +96,7 @@
 
     <div class="container" style="background-color:#f1f1f1">
         <button type="button" class="cancelbtn">Cancel</button>
-<!--        <span class="psw"> <a href="newuser.html">New User</a></span>-->
+        <span class="psw"> <a href="/user/register">New User</a></span>
     </div>
 </form>
 <div th:if="${message}" th:text="${message}"></div>

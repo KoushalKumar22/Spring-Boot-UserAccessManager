@@ -28,7 +28,7 @@ public class SignUp {
 
     @Column(name = "EmailId",unique = true)
     @NotEmpty(message = "Email Is Required")
-    @Pattern(regexp = "^[a-z0-9]$",message = "Email Does Not Contain Any Special Characters Or Capital Letters")
+    @Pattern(regexp = "^[a-z0-9@.C]+$", message = "Invalid email format")
     private String emailid;
 
     @Column(name = "PhoneNo",unique = true,length = 10)

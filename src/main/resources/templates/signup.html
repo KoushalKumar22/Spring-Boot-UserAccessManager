@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="eng" xmlns:th="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <link href="/css/style.css" rel="stylesheet" type="text/css"/>
@@ -10,7 +10,7 @@
 <div class="container">
     <div class="title">New User Registration</div>
     <div class="content">
-        <form action="#" th:action="@{/signup}" method="post">
+        <form action="/user/register" method="post">
             <div class="user-details">
                 <div class="input-box">
                     <span class="details">Full Name</span>
@@ -67,9 +67,11 @@
             </div>
 
             <div class="button">
-                <input type="submit" id="submit" value="Register">
+                <input type="submit" id="submit" value="register">
             </div>
         </form>
+
+        <div th:if="${message}" th:text="${message}"></div>
     </div>
 </div>
 </body>
